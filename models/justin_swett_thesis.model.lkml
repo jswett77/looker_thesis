@@ -22,6 +22,20 @@ explore: b {
     sql: LEFT JOIN UNNEST([${b.attributes}]) as b__attributes ;;
     relationship: one_to_one
   }
+
+  join: review {
+    view_label: "All Reviews"
+    type: left_outer
+    sql_on: ${b.business_id} = ${review.business_id};;
+    relationship: one_to_many
+  }
+
+  join: user {
+    view_label: "Users to Reviews"
+    type: left_outer
+    sql_on: ${user.user_id} = ${review.user_id} ;;
+    relationship: one_to_many
+  }
 }
 
 explore: check_in {}
@@ -46,4 +60,4 @@ explore: tip {
 
 explore: user {}
 
-explore: reuben_reviews {}
+explore: reuben_reviews { }
