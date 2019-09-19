@@ -1,7 +1,7 @@
 view: reuben_reviews {
   derived_table: {
     sql: SELECT
-        review.review_id as review_id
+        review.review_id as review_id,
         review.text  AS review_text,
         review.business_id  AS review_business_id
       FROM yelp_data.Review  AS review
