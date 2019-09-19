@@ -11,6 +11,8 @@ datagroup: justin_swett_thesis_default_datagroup {
 persist_with: justin_swett_thesis_default_datagroup
 
 explore: b {
+  label: "Business Explore"
+
   join: b__hours {
     view_label: "B: Hours"
     sql: LEFT JOIN UNNEST([${b.hours}]) as b__hours ;;
