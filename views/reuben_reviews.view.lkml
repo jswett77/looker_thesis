@@ -3,7 +3,9 @@ view: reuben_reviews {
     sql: SELECT
         review.review_id as review_id,
         review.text  AS review_text,
-        review.business_id  AS review_business_id
+        review.business_id  AS review_business_id,
+        review.stars AS stars,
+        review.useful AS useful
       FROM yelp_data.Review  AS review
       WHERE
       (lower(review.text) LIKE '% reuben %' OR lower(review.text) LIKE '% ruben %' OR lower(review.text) LIKE '% rueben %')
@@ -30,6 +32,16 @@ view: reuben_reviews {
   dimension: review_business_id {
     type: string
     sql: ${TABLE}.review_business_id ;;
+  }
+
+  dimension: stars {
+    type: number
+    sql: ${TABLE}.stars ;;
+  }
+
+  dimension: useful {
+    type: number
+    sql: ${TABLE}.useful ;;
   }
 
   set: detail {
