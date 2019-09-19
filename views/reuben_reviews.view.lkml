@@ -18,6 +18,11 @@ view: reuben_reviews {
     drill_fields: [detail*]
   }
 
+  measure: average {
+    type: average
+    sql: ${stars} ;;
+  }
+
   dimension: review_id {
     type: string
     sql: ${TABLE}.review_id ;;
