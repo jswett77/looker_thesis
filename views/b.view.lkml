@@ -46,6 +46,13 @@ view: b {
     sql: ${TABLE}.longitude ;;
   }
 
+  dimension: location {
+    type: location
+    sql_latitude:${latitude} ;;
+    sql_longitude:${longitude} ;;
+
+  }
+
   dimension: name {
     type: string
     sql: ${TABLE}.name ;;
@@ -54,6 +61,7 @@ view: b {
   dimension: postal_code {
     type: string
     sql: ${TABLE}.postal_code ;;
+    map_layer_name: "us_zipcode_tabulation_areas"
   }
 
   dimension: review_count {
