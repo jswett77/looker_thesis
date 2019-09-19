@@ -36,6 +36,14 @@ explore: b {
     sql_on: ${user.user_id} = ${review.user_id} ;;
     relationship: one_to_many
   }
+
+  join: reuben_reviews {
+    view_label: "Ruben Reviews"
+    type: left_outer
+    sql_on: ${b.business_id} = ${reuben_reviews.review_business_id} ;;
+    relationship: one_to_many
+
+  }
 }
 
 explore: check_in {}
