@@ -6,7 +6,7 @@ view: reuben_reviews {
         review.business_id  AS review_business_id
       FROM yelp_data.Review  AS review
       WHERE
-      (lower(review.text) LIKE '% reuben %' OR lower(review.text) LIKE '% ruben %')
+      (lower(review.text) LIKE '% reuben %' OR lower(review.text) LIKE '% ruben %' OR lower(review.text) LIKE '% rueben %')
       ORDER BY 1
        ;;
   }

@@ -27,7 +27,7 @@ explore: b {
 
   join: review {
     view_label: "All Reviews"
-    type: left_outer
+    type: inner
     sql_on: ${b.business_id} = ${review.business_id};;
     relationship: one_to_many
   }
@@ -41,7 +41,7 @@ explore: b {
 
   join: reuben_reviews {
     view_label: "Ruben Reviews"
-    type: left_outer
+    type: inner
     sql_on: ${b.business_id} = ${reuben_reviews.review_business_id} ;;
     relationship: one_to_many
 
