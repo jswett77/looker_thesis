@@ -60,6 +60,10 @@ view: review {
 
   measure: count {
     type: count
-    drill_fields: [review_id, user.user_id, user.name]
+    drill_fields: [business_id, review_id, user.user_id, user.name]
+  }
+
+  measure: average {
+    type: average
   }
 }
