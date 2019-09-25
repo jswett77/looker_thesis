@@ -65,5 +65,6 @@ view: review {
 
   measure: average {
     type: average
+    sql: ${stars} ;;
   }
 }
