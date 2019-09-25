@@ -53,6 +53,86 @@ view: b {
 
   }
 
+  parameter: city_param {
+    type: string
+    allowed_value: {
+      label: "Los Vegas, NV"
+      value: "vegas"
+    }
+    allowed_value: {
+      label: "Phoenix, AZ"
+      value: "phoenix"
+    }
+    allowed_value: {
+      label: "Glendale, AZ"
+      value: "glendale"
+    }
+    allowed_value: {
+      label: "Scottsdale, AZ"
+      value: "scottsdale"
+    }
+    allowed_value: {
+      label: "Madison, WI"
+      value: "madison"
+    }
+    allowed_value: {
+      label: "Cleveland, OH"
+      value: "cleveland"
+    }
+    allowed_value: {
+      label: "Pittsburgh, PA"
+      value: "pittsburgh"
+    }
+    allowed_value: {
+      label: "Charlotte, NC"
+      value: "charlotte"
+    }
+  }
+
+  dimension: distance_city_lat {
+    hidden: yes
+    type: number
+    sql: CASE WHEN {% parameter city_param %} = 'vegas' THEN 36.1699412
+              WHEN {% parameter city_param %} = 'phoenix' THEN  33.4483771
+              WHEN {% parameter city_param %} = 'glendale' THEN 33.5386523
+              WHEN {% parameter city_param %} = 'scottsdale' THEN 33.4941704
+              WHEN {% parameter city_param %} = 'madison' THEN 43.0730517
+              WHEN {% parameter city_param %} = 'cleveland' THEN 41.49932
+              WHEN {% parameter city_param %} = 'pittsburgh' THEN 40.4406248
+              WHEN {% parameter city_param %} = 'charlotte' THEN  35.2270869
+              ELSE 36.1699412 END ;;
+  }
+
+  dimension: distance_city_long {
+    hidden: yes
+    type: number
+    sql: CASE WHEN {% parameter city_param %} = 'vegas' THEN -115.1398296
+              WHEN {% parameter city_param %} = 'phoenix' THEN -112.0740373
+              WHEN {% parameter city_param %} = 'glendale' THEN -112.1859866
+              WHEN {% parameter city_param %} = 'scottsdale' THEN -111.9260519
+              WHEN {% parameter city_param %} = 'madison' THEN -89.4012302
+              WHEN {% parameter city_param %} = 'cleveland' THEN  -81.6943605
+              WHEN {% parameter city_param %} = 'pittsburgh' THEN -79.9958864
+              WHEN {% parameter city_param %} = 'charlotte' THEN -80.8431267
+              ELSE -115.1398296 END ;;
+  }
+
+
+  dimension: location_of_selected_city {
+    hidden: yes
+    type: location
+    sql_latitude: ${distance_city_lat} ;;
+    sql_longitude: ${distance_city_long} ;;
+  }
+
+  dimension: distance_between_selected_city_and_user {
+    label: "Distance in km"
+    type: distance
+    start_location_field: location
+    end_location_field: location_of_selected_city
+    units: kilometers
+  }
+
   dimension: name {
     type: string
     sql: ${TABLE}.name ;;
