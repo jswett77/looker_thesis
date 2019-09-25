@@ -126,11 +126,11 @@ view: b {
   }
 
   dimension: distance_between_selected_city_and_user {
-    label: "Distance in km"
+    label: "Distance in mi"
     type: distance
     start_location_field: location
     end_location_field: location_of_selected_city
-    units: kilometers
+    units: miles
   }
 
   dimension: name {
