@@ -39,10 +39,10 @@ explore: establishment {
     relationship: one_to_many
   }
 
-  join: reuben_reviews {
-    view_label: "Ruben Reviews"
+  join: craved_reviews {
+    view_label: "Craving Specific Reviews"
     type: inner
-    sql_on: ${establishment.business_id} = ${reuben_reviews.review_business_id} ;;
+    sql_on: ${establishment.business_id} = ${craved_reviews.review_business_id} ;;
     relationship: one_to_many
 
   }
@@ -70,4 +70,4 @@ explore: tip {
 
 explore: user {}
 
-explore: reuben_reviews { }
+explore: craved_reviews { }

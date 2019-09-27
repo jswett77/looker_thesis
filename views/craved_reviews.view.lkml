@@ -1,4 +1,4 @@
-view: reuben_reviews {
+view: craved_reviews {
   # https://docs.looker.com/data-modeling/learning-lookml/templated-filters
   derived_table: {
     sql: SELECT
