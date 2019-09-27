@@ -9,16 +9,19 @@ view: craved_reviews {
         review.useful AS useful
       FROM yelp_data.Review  AS review
       WHERE
+      -- {{ food_craving._parameter_value }}
       {% if food_craving._parameter_value == 'ruben' %} @{rueben_match}
-      {% elsif food_craving._parameter_value == 'ramen' %} @{ramen_match}
-      {% else %}@{rueben_match} {% endif %}
+      {% elsif food_craving._parameter_value == "ramen" %} @{ramen_match}
+      {% else %} true {% endif %}
       ORDER BY 1
        ;;
   }
 
   #(lower(review.text) LIKE '% reuben %' OR lower(review.text) LIKE '% ruben %' OR lower(review.text) LIKE '% rueben %')
+  # liquid comments
+  # -- {{ food_craving._parameter_value }}
   parameter: food_craving {
-    type: string
+    type: unquoted
     allowed_value: {
         label: "Reuben"
         value: "ruben"
@@ -28,8 +31,6 @@ view: craved_reviews {
       label: "Ramen"
       value: "ramen"
     }
-
-    default_value: "Reuben"
   }
 
   #templated filter

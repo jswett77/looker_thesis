@@ -12,5 +12,5 @@ constant: rueben_match {
 }
 
 constant: ramen_match {
-  value: "(lower(review.text) LIKE '% ramen %' OR (lower(review.text) LIKE '% noodle %' OR (lower(review.text) LIKE '% shoyu %' OR (lower(review.text) LIKE '% tonkotsu %'"
+  value: "(lower(review.text) LIKE '% ramen %' OR lower(review.text) LIKE '% noodle %' OR lower(review.text) LIKE '% shoyu %' OR lower(review.text) LIKE '% tonkotsu %')"
 }
