@@ -3,12 +3,12 @@ connection: "op_yelp_thesis"
 # include all the views
 include: "/views/**/*.view"
 
-datagroup: justin_swett_thesis_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
-  max_cache_age: "1 hour"
-}
+# datagroup: justin_swett_thesis_default_datagroup {
+#   # sql_trigger: SELECT MAX(id) FROM etl_log;;
+#   max_cache_age: "1 hour"
+# }
 
-persist_with: justin_swett_thesis_default_datagroup
+# persist_with: justin_swett_thesis_default_datagroup
 
 explore: establishment {
   label: "Business Explore"
