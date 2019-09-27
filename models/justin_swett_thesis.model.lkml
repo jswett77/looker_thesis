@@ -13,16 +13,12 @@ persist_with: justin_swett_thesis_default_datagroup
 explore: establishment {
   label: "Business Explore"
 
-  join: b__hours {
-    view_label: "B: Hours"
-    sql: LEFT JOIN UNNEST([${establishment.hours}]) as b__hours ;;
-    relationship: one_to_one
-  }
+  join: craved_reviews {
+    view_label: "Craving Specific Reviews"
+    type: inner
+    sql_on: ${establishment.business_id} = ${craved_reviews.review_business_id} ;;
+    relationship: one_to_many
 
-  join: b__attributes {
-    view_label: "B: Attributes"
-    sql: LEFT JOIN UNNEST([${establishment.attributes}]) as b__attributes ;;
-    relationship: one_to_one
   }
 
   join: review {
@@ -38,19 +34,7 @@ explore: establishment {
     sql_on: ${user.user_id} = ${review.user_id} ;;
     relationship: one_to_many
   }
-
-  join: craved_reviews {
-    view_label: "Craving Specific Reviews"
-    type: inner
-    sql_on: ${establishment.business_id} = ${craved_reviews.review_business_id} ;;
-    relationship: one_to_many
-
-  }
 }
-
-explore: check_in {}
-
-explore: photo {}
 
 explore: review {
   join: user {
