@@ -66,9 +66,5 @@ view: review {
   measure: average {
     type: average
     sql: ${stars} ;;
-    link: {
-      label: "Show historical ratings"
-      url: "/explore/justin_swett_thesis/b?fields=review.count,review.date_month,review.average&fill_fields=review.date_month&f[review.business_id]={{business_id}}&sorts=review.date_month desc&limit=500&query_timezone=America/Los_Angeles"
-    }
   }
 }

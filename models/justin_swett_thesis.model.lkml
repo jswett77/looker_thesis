@@ -10,25 +10,25 @@ datagroup: justin_swett_thesis_default_datagroup {
 
 persist_with: justin_swett_thesis_default_datagroup
 
-explore: b {
+explore: establishment {
   label: "Business Explore"
 
   join: b__hours {
     view_label: "B: Hours"
-    sql: LEFT JOIN UNNEST([${b.hours}]) as b__hours ;;
+    sql: LEFT JOIN UNNEST([${establishment.hours}]) as b__hours ;;
     relationship: one_to_one
   }
 
   join: b__attributes {
     view_label: "B: Attributes"
-    sql: LEFT JOIN UNNEST([${b.attributes}]) as b__attributes ;;
+    sql: LEFT JOIN UNNEST([${establishment.attributes}]) as b__attributes ;;
     relationship: one_to_one
   }
 
   join: review {
     view_label: "All Reviews"
     type: inner
-    sql_on: ${b.business_id} = ${review.business_id};;
+    sql_on: ${establishment.business_id} = ${review.business_id};;
     relationship: one_to_many
   }
 
@@ -42,7 +42,7 @@ explore: b {
   join: reuben_reviews {
     view_label: "Ruben Reviews"
     type: inner
-    sql_on: ${b.business_id} = ${reuben_reviews.review_business_id} ;;
+    sql_on: ${establishment.business_id} = ${reuben_reviews.review_business_id} ;;
     relationship: one_to_many
 
   }

@@ -1,4 +1,4 @@
-view: b {
+view: establishment {
   sql_table_name: yelp_data.b ;;
 
   dimension: address {
@@ -54,9 +54,11 @@ view: b {
   }
 
   parameter: city_param {
+    label: "Visiting City"
+    view_label: "Visiting City"
     type: string
     allowed_value: {
-      label: "Los Vegas, NV"
+      label: "Las Vegas, NV"
       value: "vegas"
     }
     allowed_value: {
