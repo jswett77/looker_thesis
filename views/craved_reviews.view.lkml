@@ -11,6 +11,8 @@ view: craved_reviews {
       WHERE
       {% if food_craving._parameter_value == 'ruben' %} @{rueben_match}
       {% elsif food_craving._parameter_value == "ramen" %} @{ramen_match}
+      {% elsif food_craving._parameter_value == "lasagna" %}
+        (lower(review.text) LIKE '% lasagna %' OR lower(review.text) LIKE '% lasagne %' OR lower(review.text) LIKE '% lasagye %')
       {% else %} true --pull in all reviews
         {% endif %}
       ORDER BY 1
@@ -37,6 +39,12 @@ view: craved_reviews {
       label: "Ramen"
       value: "ramen"
     }
+
+    allowed_value: {
+      label: "Lasagna"
+      value: "lasagna"
+    }
+
     default_value: "all"
   }
 
