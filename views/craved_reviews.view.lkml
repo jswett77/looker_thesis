@@ -49,22 +49,6 @@ view: craved_reviews {
   }
 
   #templated filter
-
-
-  measure: count {
-    type: count
-    drill_fields: [detail*]
-  }
-
-  measure: average {
-    type: average
-    sql: ${stars} ;;
-    link: {
-      label: "Show historical ratings"
-      url: "/explore/justin_swett_thesis/b?fields=review.count,review.date_month,review.average&fill_fields=review.date_month&f[review.business_id]={{review_business_id}}&sorts=review.date_month desc&limit=500&query_timezone=America/Los_Angeles"
-    }
-  }
-
   dimension: review_id {
     type: string
     sql: ${TABLE}.review_id ;;
@@ -93,5 +77,19 @@ view: craved_reviews {
 
   set: detail {
     fields: [review_text, review_business_id, review_id]
+  }
+
+  measure: count {
+    type: count
+    drill_fields: [detail*]
+  }
+
+  measure: average {
+    type: average
+    sql: ${stars} ;;
+    link: {
+      label: "Show historical ratings"
+      url: "/explore/justin_swett_thesis/b?fields=review.count,review.date_month,review.average&fill_fields=review.date_month&f[review.business_id]={{review_business_id}}&sorts=review.date_month desc&limit=500&query_timezone=America/Los_Angeles"
+    }
   }
 }
