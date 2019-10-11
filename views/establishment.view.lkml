@@ -6,7 +6,7 @@ view: establishment {
     sql: ${TABLE}.name ;;
     link: {
       label: "Establishment Factsheet"
-      url: "dashboards/448?Establishment%20ID={{review_business_id}}"
+      url: "dashboards/448?Establishment%20ID={{business_id}}"
     }
   }
 
