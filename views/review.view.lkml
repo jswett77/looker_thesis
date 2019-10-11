@@ -67,4 +67,9 @@ view: review {
     type: average
     sql: ${stars} ;;
   }
+
+  measure: firstReview {
+    type: min
+    sql:  ${TABLE}.date ;;
+  }
 }
