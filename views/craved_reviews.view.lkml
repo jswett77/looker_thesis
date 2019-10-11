@@ -53,11 +53,13 @@ view: craved_reviews {
     type: string
     sql: ${TABLE}.review_id ;;
     primary_key: yes
+    order_by_field: useful
   }
 
   dimension: review_text {
     type: string
     sql: ${TABLE}.review_text ;;
+    order_by_field: useful
   }
 
   dimension: review_business_id {
