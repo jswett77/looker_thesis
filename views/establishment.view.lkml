@@ -1,6 +1,16 @@
 view: establishment {
   sql_table_name: yelp_data.b ;;
 
+  dimension: name {
+    type: string
+    sql: ${TABLE}.name ;;
+    link: {
+      label: "Establishment Factsheet"
+      url: "dashboards/448?Establishment%20ID={{review_business_id}}"
+    }
+  }
+
+
   dimension: address {
     type: string
     sql: ${TABLE}.address ;;
@@ -133,11 +143,6 @@ view: establishment {
     start_location_field: location
     end_location_field: location_of_selected_city
     units: miles
-  }
-
-  dimension: name {
-    type: string
-    sql: ${TABLE}.name ;;
   }
 
   dimension: postal_code {

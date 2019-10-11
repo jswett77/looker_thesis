@@ -75,6 +75,20 @@ view: craved_reviews {
     sql: ${TABLE}.useful ;;
   }
 
+  dimension_group: craving_review_date {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}.date ;;
+  }
+
   set: detail {
     fields: [review_text, review_business_id, review_id]
   }
@@ -84,12 +98,14 @@ view: craved_reviews {
     drill_fields: [detail*]
   }
 
+  measure: first_review_date {
+    type: date
+    sql: MAX(${craving_review_date_raw}) ;;
+    convert_tz: no
+  }
+
   measure: average {
     type: average
     sql: ${stars} ;;
-    link: {
-      label: "Show historical ratings"
-      url: "/explore/justin_swett_thesis/b?fields=review.count,review.date_month,review.average&fill_fields=review.date_month&f[review.business_id]={{review_business_id}}&sorts=review.date_month desc&limit=500&query_timezone=America/Los_Angeles"
-    }
   }
 }

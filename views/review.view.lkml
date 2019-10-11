@@ -68,8 +68,9 @@ view: review {
     sql: ${stars} ;;
   }
 
-  measure: firstReview {
-    type: min
-    sql:  ${TABLE}.date ;;
+  measure: first_review_date {
+    type: date
+    sql: MAX(${date_raw}) ;;
+    convert_tz: no
   }
 }
