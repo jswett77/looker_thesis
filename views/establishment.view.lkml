@@ -19,19 +19,19 @@ view: establishment {
       }
       when: {
         label: "Salons"
-        sql:  ${categories} like "%Salons%" or ${categories} like "%Spas%;;
+        sql:  ${categories} like "%Salons%" or ${categories} like "%Spas%";;
       }
       when: {
         label: "Religious"
-        sql:  ${categories} like "%Religious%" or ${categories} like "%Churches%;;
+        sql:  ${categories} like "%Religious%" or ${categories} like "%Churches%";;
       }
       when: {
         label: "Nightlife"
-        sql:  ${categories} like "%Bars%" or ${categories} like "%Nightlife%;;
+        sql:  ${categories} like "%Bars%" or ${categories} like "%Nightlife%";;
       }
       when: {
-        label: "Services *"
-        sql: ${categories} like "%Services%"  ;;
+        label: "Services"
+        sql: ${categories} like "%Services *%"  ;;
       }
       when: {
         label: "Automotive"
