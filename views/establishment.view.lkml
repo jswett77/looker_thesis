@@ -10,6 +10,100 @@ view: establishment {
     }
   }
 
+  dimension: establishment_type {
+    type: string
+    case: {
+      when: {
+        label: "Dining"
+        sql:  ${categories} ilike %Restaurants% or ${categories} ilike %Food%;;
+      }
+      when: {
+        label: "Salons"
+        sql:  ${categories} ilike %Salons% or ${categories} ilike %Spas%;;
+      }
+      when: {
+        label: "Religious"
+        sql:  ${categories} ilike %Religious% or ${categories} ilike %Churches%;;
+      }
+      when: {
+        label: "Nightlife"
+        sql:  ${categories} ilike %Bars% or ${categories} ilike %Nightlife%;;
+      }
+      when: {
+        label: "Services *"
+        sql: ${categories} ilike %Services%  ;;
+      }
+      when: {
+        label: "Automotive"
+        sql: ${categories} ilike %Automotive%  ;;
+      }
+      when: {
+        label: "Medical"
+        sql:  ${categories} ilike %Medical%  ;;
+      }
+      when: {
+        label: "Medical"
+        sql:  ${categories} ilike %Medical%  ;;
+      }
+
+      when: {
+        label: "Hotel"
+        sql:  ${categories} ilike %Hotels%  ;;
+      }
+
+      when: {
+        label: "Eductational"
+        sql: ${categories} ilike %Education% or ${categories} ilike %School% ;;
+      }
+
+      when: {
+        label: "Parks and Rec"
+        sql: ${categories} ilike %Parks% or ${categories} ilike %Active Life% ;;
+      }
+
+      when: {
+        label: "Fitness"
+        sql: ${categories} ilike %Fitness% ;;
+      }
+
+      when: {
+        label: "Financial"
+        sql: ${categories} ilike %Financial% ;;
+      }
+
+      when: {
+        label: "Real Estate"
+        sql: ${categories} ilike %Real Estate% ;;
+      }
+
+      when: {
+        label: "Home Improvement"
+        sql: ${categories} ilike %Home & Garden% ;;
+      }
+
+      when: {
+        label: "Pet Care"
+        sql: ${categories} ilike %Pets% ;;
+      }
+
+      when: {
+        label: "Media Source"
+        sql: ${categories} ilike %Media% ;;
+      }
+
+      when: {
+        label: "Entertainment"
+        sql: ${categories} ilike '%Entertainment%';;
+      }
+
+      when: {
+        label: "Shopping"
+        sql: ${categories} ilike '%Shopping%';;
+      }
+
+      else: "Misc"
+    }
+  }
 
   dimension: address {
     type: string
