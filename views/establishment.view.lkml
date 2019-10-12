@@ -10,6 +10,8 @@ view: establishment {
     }
   }
 
+
+
   dimension: establishment_type {
     type: string
     case: {
@@ -201,6 +203,18 @@ view: establishment {
     }
   }
 
+  dimension: default_city_for_state {
+    type: string
+    sql: CASE WHEN ${state} = 'NV' THEN "vegas"
+         CASE WHEN ${state} = 'AZ' THEN "phoenix"
+         CASE WHEN ${state} = 'WI' THEN "madison"
+         CASE WHEN ${state} = 'OH' THEN "cleveland"
+         CASE WHEN ${state} = 'PA' THEN "pittsburgh"
+         CASE WHEN ${state} = 'NC' THEN "charlotte"
+              ELSE "UNAVAILABLE";;
+
+  }
+
   dimension: distance_city_lat {
     hidden: yes
     type: number
@@ -270,224 +284,5 @@ view: establishment {
   measure: count {
     type: count
     drill_fields: [name]
-  }
-}
-
-view: b__hours {
-  dimension: friday {
-    type: string
-    sql: ${TABLE}.Friday ;;
-  }
-
-  dimension: monday {
-    type: string
-    sql: ${TABLE}.Monday ;;
-  }
-
-  dimension: saturday {
-    type: string
-    sql: ${TABLE}.Saturday ;;
-  }
-
-  dimension: sunday {
-    type: string
-    sql: ${TABLE}.Sunday ;;
-  }
-
-  dimension: thursday {
-    type: string
-    sql: ${TABLE}.Thursday ;;
-  }
-
-  dimension: tuesday {
-    type: string
-    sql: ${TABLE}.Tuesday ;;
-  }
-
-  dimension: wednesday {
-    type: string
-    sql: ${TABLE}.Wednesday ;;
-  }
-}
-
-view: b__attributes {
-  dimension: accepts_insurance {
-    type: yesno
-    sql: ${TABLE}.AcceptsInsurance ;;
-  }
-
-  dimension: ages_allowed {
-    type: string
-    sql: ${TABLE}.AgesAllowed ;;
-  }
-
-  dimension: alcohol {
-    type: string
-    sql: ${TABLE}.Alcohol ;;
-  }
-
-  dimension: ambience {
-    type: string
-    sql: ${TABLE}.Ambience ;;
-  }
-
-  dimension: best_nights {
-    type: string
-    sql: ${TABLE}.BestNights ;;
-  }
-
-  dimension: bike_parking {
-    type: string
-    sql: ${TABLE}.BikeParking ;;
-  }
-
-  dimension: business_accepts_bitcoin {
-    type: yesno
-    sql: ${TABLE}.BusinessAcceptsBitcoin ;;
-  }
-
-  dimension: business_accepts_credit_cards {
-    type: string
-    sql: ${TABLE}.BusinessAcceptsCreditCards ;;
-  }
-
-  dimension: business_parking {
-    type: string
-    sql: ${TABLE}.BusinessParking ;;
-  }
-
-  dimension: by_appointment_only {
-    type: string
-    sql: ${TABLE}.ByAppointmentOnly ;;
-  }
-
-  dimension: byob {
-    type: yesno
-    sql: ${TABLE}.BYOB ;;
-  }
-
-  dimension: byobcorkage {
-    type: string
-    sql: ${TABLE}.BYOBCorkage ;;
-  }
-
-  dimension: caters {
-    type: yesno
-    sql: ${TABLE}.Caters ;;
-  }
-
-  dimension: coat_check {
-    type: yesno
-    sql: ${TABLE}.CoatCheck ;;
-  }
-
-  dimension: corkage {
-    type: yesno
-    sql: ${TABLE}.Corkage ;;
-  }
-
-  dimension: dogs_allowed {
-    type: yesno
-    sql: ${TABLE}.DogsAllowed ;;
-  }
-
-  dimension: drive_thru {
-    type: yesno
-    sql: ${TABLE}.DriveThru ;;
-  }
-
-  dimension: good_for_dancing {
-    type: yesno
-    sql: ${TABLE}.GoodForDancing ;;
-  }
-
-  dimension: good_for_kids {
-    type: yesno
-    sql: ${TABLE}.GoodForKids ;;
-  }
-
-  dimension: good_for_meal {
-    type: string
-    sql: ${TABLE}.GoodForMeal ;;
-  }
-
-  dimension: hair_specializes_in {
-    type: string
-    sql: ${TABLE}.HairSpecializesIn ;;
-  }
-
-  dimension: happy_hour {
-    type: yesno
-    sql: ${TABLE}.HappyHour ;;
-  }
-
-  dimension: has_tv {
-    type: yesno
-    sql: ${TABLE}.HasTV ;;
-  }
-
-  dimension: music {
-    type: string
-    sql: ${TABLE}.Music ;;
-  }
-
-  dimension: noise_level {
-    type: string
-    sql: ${TABLE}.NoiseLevel ;;
-  }
-
-  dimension: outdoor_seating {
-    type: yesno
-    sql: ${TABLE}.OutdoorSeating ;;
-  }
-
-  dimension: restaurants_attire {
-    type: string
-    sql: ${TABLE}.RestaurantsAttire ;;
-  }
-
-  dimension: restaurants_delivery {
-    type: yesno
-    sql: ${TABLE}.RestaurantsDelivery ;;
-  }
-
-  dimension: restaurants_good_for_groups {
-    type: yesno
-    sql: ${TABLE}.RestaurantsGoodForGroups ;;
-  }
-
-  dimension: restaurants_price_range2 {
-    type: number
-    sql: ${TABLE}.RestaurantsPriceRange2 ;;
-  }
-
-  dimension: restaurants_reservations {
-    type: yesno
-    sql: ${TABLE}.RestaurantsReservations ;;
-  }
-
-  dimension: restaurants_table_service {
-    type: yesno
-    sql: ${TABLE}.RestaurantsTableService ;;
-  }
-
-  dimension: restaurants_take_out {
-    type: yesno
-    sql: ${TABLE}.RestaurantsTakeOut ;;
-  }
-
-  dimension: smoking {
-    type: string
-    sql: ${TABLE}.Smoking ;;
-  }
-
-  dimension: wheelchair_accessible {
-    type: yesno
-    sql: ${TABLE}.WheelchairAccessible ;;
-  }
-
-  dimension: wi_fi {
-    type: string
-    sql: ${TABLE}.WiFi ;;
   }
 }
