@@ -15,94 +15,95 @@ view: establishment {
     case: {
       when: {
         label: "Dining"
-        sql:  ${categories} ilike %Restaurants% or ${categories} ilike %Food%;;
+        sql:  ${categories} like "%Restaurants%" or ${categories} like "%Food%";;
       }
       when: {
         label: "Salons"
-        sql:  ${categories} ilike %Salons% or ${categories} ilike %Spas%;;
+        sql:  ${categories} like "%Salons%" or ${categories} like "%Spas%;;
       }
       when: {
         label: "Religious"
-        sql:  ${categories} ilike %Religious% or ${categories} ilike %Churches%;;
+        sql:  ${categories} like "%Religious%" or ${categories} like "%Churches%;;
       }
       when: {
         label: "Nightlife"
-        sql:  ${categories} ilike %Bars% or ${categories} ilike %Nightlife%;;
+        sql:  ${categories} like "%Bars%" or ${categories} like "%Nightlife%;;
       }
       when: {
         label: "Services *"
-        sql: ${categories} ilike %Services%  ;;
+        sql: ${categories} like "%Services%"  ;;
       }
       when: {
         label: "Automotive"
-        sql: ${categories} ilike %Automotive%  ;;
+        sql: ${categories} like "%Automotive%"  ;;
       }
       when: {
         label: "Medical"
-        sql:  ${categories} ilike %Medical%  ;;
+        sql:  ${categories} like "%Medical%"  ;;
       }
       when: {
         label: "Medical"
-        sql:  ${categories} ilike %Medical%  ;;
+        sql:  ${categories} like "%Medical%"  ;;
       }
 
       when: {
         label: "Hotel"
-        sql:  ${categories} ilike %Hotels%  ;;
+        sql:  ${categories} like "%Hotels%"  ;;
       }
 
       when: {
         label: "Eductational"
-        sql: ${categories} ilike %Education% or ${categories} ilike %School% ;;
+        sql: ${categories} like "%Education%" or ${categories} like "%School%" ;;
       }
 
       when: {
         label: "Parks and Rec"
-        sql: ${categories} ilike %Parks% or ${categories} ilike %Active Life% ;;
+        sql: ${categories} like "%Parks%" or ${categories} like "%Active Life%" ;;
       }
 
       when: {
         label: "Fitness"
-        sql: ${categories} ilike %Fitness% ;;
+        sql: ${categories} like "%Fitness%" ;;
       }
 
       when: {
         label: "Financial"
-        sql: ${categories} ilike %Financial% ;;
+        sql: ${categories} like "%Financial%" ;;
       }
 
       when: {
         label: "Real Estate"
-        sql: ${categories} ilike %Real Estate% ;;
+        sql: ${categories} like "%Real Estate%" ;;
       }
 
       when: {
         label: "Home Improvement"
-        sql: ${categories} ilike %Home & Garden% ;;
+        sql: ${categories} like "%Home & Garden%" ;;
       }
 
       when: {
         label: "Pet Care"
-        sql: ${categories} ilike %Pets% ;;
+        sql: ${categories} like "%Pets%" ;;
       }
 
       when: {
         label: "Media Source"
-        sql: ${categories} ilike %Media% ;;
+        sql: ${categories} like "%Media%" ;;
       }
 
       when: {
         label: "Entertainment"
-        sql: ${categories} ilike '%Entertainment%';;
+        sql: ${categories} like '%Entertainment%';;
       }
 
       when: {
         label: "Shopping"
-        sql: ${categories} ilike '%Shopping%';;
+        sql: ${categories} like '%Shopping%';;
       }
+      else: "¯\_(ツ)_/¯"
 
-      else: "Misc"
     }
+    alpha_sort: yes
   }
 
   dimension: address {
