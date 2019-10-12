@@ -32,7 +32,7 @@ view: establishment {
   }
 
   filter: RestaurantsOnly {
-    hidden: yes
+    hidden: no
     sql: ${categories} LIKE '%Restaurants%' ;;
   }
 
