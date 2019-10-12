@@ -211,7 +211,7 @@ view: establishment {
          CASE WHEN ${state} = 'OH' THEN "cleveland"
          CASE WHEN ${state} = 'PA' THEN "pittsburgh"
          CASE WHEN ${state} = 'NC' THEN "charlotte"
-              ELSE "UNAVAILABLE";;
+              ELSE "UNAVAILABLE" END ;;
 
   }
 
