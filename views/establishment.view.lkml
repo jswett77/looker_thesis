@@ -206,11 +206,11 @@ view: establishment {
   dimension: default_city_for_state {
     type: string
     sql: CASE WHEN ${state} = 'NV' THEN "vegas"
-         CASE WHEN ${state} = 'AZ' THEN "phoenix"
-         CASE WHEN ${state} = 'WI' THEN "madison"
-         CASE WHEN ${state} = 'OH' THEN "cleveland"
-         CASE WHEN ${state} = 'PA' THEN "pittsburgh"
-         CASE WHEN ${state} = 'NC' THEN "charlotte"
+          WHEN ${state} = 'AZ' THEN "phoenix"
+          WHEN ${state} = 'WI' THEN "madison"
+          WHEN ${state} = 'OH' THEN "cleveland"
+          WHEN ${state} = 'PA' THEN "pittsburgh"
+          WHEN ${state} = 'NC' THEN "charlotte"
               ELSE "UNAVAILABLE" END ;;
 
   }
