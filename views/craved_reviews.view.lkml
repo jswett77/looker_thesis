@@ -6,7 +6,8 @@ view: craved_reviews {
         review.text  AS review_text,
         review.business_id  AS review_business_id,
         review.stars AS stars,
-        review.useful AS useful
+        review.useful AS useful,
+        review.date as date
       FROM yelp_data.Review  AS review
       WHERE
       {% if food_craving._parameter_value == 'ruben' %} @{rueben_match}
