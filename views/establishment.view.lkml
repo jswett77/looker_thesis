@@ -213,6 +213,11 @@ view: establishment {
           WHEN ${state} = 'NC' THEN "charlotte"
               ELSE "UNAVAILABLE" END ;;
 
+    link: {
+      label: "Establishment Factsheet"
+      url: "https://productday.dev.looker.com/dashboards/447?Visiting%20City={{default_city_for_state}}"
+
+    }
   }
 
   dimension: distance_city_lat {
