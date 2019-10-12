@@ -31,6 +31,11 @@ view: establishment {
     sql: ${TABLE}.categories ;;
   }
 
+  filter: RestaurantsOnly {
+    hidden: yes
+    sql: ${categories} LIKE '%Restaurants%' ;;
+  }
+
   dimension: city {
     type: string
     sql: ${TABLE}.city ;;
