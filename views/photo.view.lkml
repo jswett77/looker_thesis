@@ -10,6 +10,7 @@ view: photo {
       label: "{{caption}}"
       url: "https://s3-media3.fl.yelpcdn.com/bphoto/{{photo_id}}/l.jpg"
     }
+    html: <img src="https://s3-media3.fl.yelpcdn.com/bphoto/{{value}}/l.jpg" alt="{{caption}}"/> ;;
     #https://s3-media3.fl.yelpcdn.com/bphoto/dsebryOjSyy9gwMWo5umjw/l.jpg
   }
 
