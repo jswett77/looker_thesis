@@ -18,7 +18,6 @@ explore: establishment {
     type: inner
     sql_on: ${establishment.business_id} = ${craved_reviews.review_business_id} ;;
     relationship: one_to_many
-
   }
 
   join: review {
@@ -26,6 +25,13 @@ explore: establishment {
     type: inner
     sql_on: ${establishment.business_id} = ${review.business_id};;
     relationship: one_to_many
+  }
+
+  join: photo {
+    view_label: "Photos"
+    type: inner
+    relationship: one_to_many
+    sql_on:  ${establishment.business_id} = ${photo.business_id};;
   }
 
   join: user {
@@ -43,6 +49,7 @@ explore: review {
     relationship: many_to_one
   }
 }
+
 
 explore: tip {
   join: user {
