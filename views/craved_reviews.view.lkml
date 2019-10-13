@@ -111,6 +111,7 @@ view: craved_reviews {
 
   measure: average {
     type: average
+    label: "Craving Average"
     value_format_name: decimal_2
     sql: ${stars} ;;
   }
