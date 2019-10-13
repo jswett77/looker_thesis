@@ -10,7 +10,7 @@ view: craved_reviews {
         review.date as date
       FROM yelp_data.Review  AS review
       WHERE
-      {% if food_craving._parameter_value == 'ruben' %} @{rueben_match}
+      {% if food_craving._parameter_value == 'reuben' %} @{rueben_match}
       {% elsif food_craving._parameter_value == "ramen" %} @{ramen_match}
       {% elsif food_craving._parameter_value == "lasagna" %}
         (lower(review.text) LIKE '% lasagna %' OR lower(review.text) LIKE '% lasagne %' OR lower(review.text) LIKE '% lasagye %')
@@ -33,7 +33,7 @@ view: craved_reviews {
 
     allowed_value: {
         label: "Reuben"
-        value: "ruben"
+        value: "reuben"
     }
 
     allowed_value: {
@@ -103,12 +103,15 @@ view: craved_reviews {
 
   measure: first_review_date {
     type: date
+
     sql: MAX(${craving_review_date_raw}) ;;
     convert_tz: no
+
   }
 
   measure: average {
     type: average
+    value_format_name: decimal_2
     sql: ${stars} ;;
   }
 }

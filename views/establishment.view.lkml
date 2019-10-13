@@ -6,7 +6,7 @@ view: establishment {
     sql: ${TABLE}.name ;;
     link: {
       label: "Establishment Factsheet"
-      url: "https://productday.dev.looker.com/dashboards/448?Establishment%20ID={{business_id}}&Food%20Craving={{ _filters['I_want_to_eat'] | url_encode }}"
+      url: "https://productday.dev.looker.com/dashboards/448?Establishment%20ID={{business_id}}&Food%20Craving={{ _filters['craved_reviews.food_craving'] | url_encode }}"
     }
   }
 
