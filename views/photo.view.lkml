@@ -6,6 +6,11 @@ view: photo {
     primary_key: yes
     type: string
     sql: ${TABLE}.photo_id ;;
+    link: {
+      label: "{{caption}}"
+      url: "https://s3-media3.fl.yelpcdn.com/bphoto/{{photo_id}}/l.jpg"
+    }
+    #https://s3-media3.fl.yelpcdn.com/bphoto/dsebryOjSyy9gwMWo5umjw/l.jpg
   }
 
   dimension: business_id {
