@@ -70,7 +70,7 @@ view: review {
 
   measure: first_review_date {
     type: date
-    sql: MAX(${date_raw}) ;;
+    sql: MIN(${date_raw}) ;;
     convert_tz: no
   }
 }
