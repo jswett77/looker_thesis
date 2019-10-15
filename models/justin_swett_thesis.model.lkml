@@ -61,3 +61,5 @@ explore: tip {
 explore: user {}
 
 explore: craved_reviews { }
+
+explore: global_consts {}

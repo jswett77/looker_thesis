@@ -109,9 +109,9 @@ view: craved_reviews {
 
   }
 
-#   measure: z_score {
+#   dimension: z_score {
 #     type:  number
-#     sql: AVG(stars) / ${global_consts}.G_AVERAGE ;;
+#     sql: ${global_consts}.G_AVERAGE ;;
 #
 #   }
 
