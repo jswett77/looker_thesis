@@ -50,7 +50,6 @@ explore: review {
   }
 }
 
-
 explore: tip {
   join: user {
     type: left_outer

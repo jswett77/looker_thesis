@@ -109,6 +109,12 @@ view: craved_reviews {
 
   }
 
+#   measure: z_score {
+#     type:  number
+#     sql: AVG(stars) / ${global_consts}.G_AVERAGE ;;
+#
+#   }
+
   measure: average {
     type: average
     label: "Craving Average"

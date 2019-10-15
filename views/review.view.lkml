@@ -58,11 +58,6 @@ view: review {
     sql: ${TABLE}.user_id ;;
   }
 
-  measure:  swett_score {
-    type: number
-    sql: SUM(${stars})/COUNT(${stars}) ;;
-  }
-
   measure: count {
     type: count
     drill_fields: [business_id, review_id, user.user_id, user.name]
