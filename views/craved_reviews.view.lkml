@@ -109,11 +109,24 @@ view: craved_reviews {
 
   }
 
-#   dimension: z_score {
-#     type:  number
-#     sql: ${global_consts}.G_AVERAGE ;;
-#
-#   }
+  dimension: global_avg {
+    type:  number
+    sql: (
+      SELECT AVG(stars) G_AVERAGE FROM `ardent-kite-243923.yelp_data.Review`
+      ) ;;
+  }
+
+  dimension: global_stddev {
+      type:  number
+      sql: (
+              SELECT STDDEV(stars) G_STDDEV FROM `ardent-kite-243923.yelp_data.Review`
+              ) ;;
+  }
+
+  measure: z_score {
+    type: number
+    sql: (AVG(${stars})-${global_avg})/${global_stddev} ;;
+  }
 
   measure: average {
     type: average
