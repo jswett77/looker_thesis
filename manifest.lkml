@@ -16,7 +16,7 @@ constant: ramen_match {
 }
 
 constant:  bakery_match {
-  value: "(lower(review.text) LIKE '% bakery %' OR lower(review.text) LIKE '% shenkin %' OR lower(review.text) LIKE '% croissants %' OR lower(review.text) LIKE '% bread %')"
+  value: "(lower(review.text) LIKE '% bakery %' OR lower(review.text) LIKE '% schnecken %' OR lower(review.text) LIKE '% croissants %' OR lower(review.text) LIKE '% bread %')"
 }
 
 constant:  pizza_match {
