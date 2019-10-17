@@ -12,6 +12,8 @@ view: craved_reviews {
       WHERE
       {% if food_craving._parameter_value == 'reuben' %} @{rueben_match}
       {% elsif food_craving._parameter_value == "ramen" %} @{ramen_match}
+      {% elsif food_craving._parameter_value == "bakery" %} @{bakery_match}
+      {% elsif food_craving._parameter_value == "pizza" %} @{pizza_match}
       {% elsif food_craving._parameter_value == "lasagna" %}
         (lower(review.text) LIKE '% lasagna %' OR lower(review.text) LIKE '% lasagne %' OR lower(review.text) LIKE '% lasagye %')
       {% else %} true --pull in all reviews
@@ -44,6 +46,16 @@ view: craved_reviews {
     allowed_value: {
       label: "Lasagna"
       value: "lasagna"
+    }
+
+    allowed_value: {
+      label: "Bakery"
+      value: "bakery"
+    }
+
+    allowed_value: {
+      label: "Pizza"
+      value: "pizza"
     }
 
     default_value: "all"
